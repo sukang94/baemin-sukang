@@ -1,7 +1,7 @@
 import React from "react";
-import { Text, View } from "react-native";
 import { AppLoading } from "expo";
-import { TabNavigation } from "./navigation/TabNavigation";
+import MainNavigation from "./navigation/MainNavigation";
+import * as Font from "expo-font";
 
 export default class App extends React.Component {
   state = {
@@ -19,11 +19,7 @@ export default class App extends React.Component {
   render() {
     const { loaded } = this.state;
     if (loaded) {
-      return (
-        <View>
-          <Text>Open up App.js to start working on your app!</Text>
-        </View>
-      );
+      return <MainNavigation />;
     } else {
       return (
         <AppLoading
