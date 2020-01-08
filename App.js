@@ -1,6 +1,5 @@
 import React from "react";
 import { AppLoading } from "expo";
-import TabNavigator from "./navigation/TabNavigation";
 import * as Font from "expo-font";
 import MainNavigation from "./navigation/MainNavigation";
 

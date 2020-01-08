@@ -2,15 +2,16 @@ import React from "react";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import TabNavigator from "./TabNavigation";
-import BMart from "../screens/BMart";
+import BMarts from "../screens/BMart";
 
 const MainNavigation = createStackNavigator(
   {
-    tab: { screen: TabNavigator, navigationOptions: { header: null } },
-    BMart: { screen: BMart }
+    Home: { screen: TabNavigator, navigationOptions: { header: null } },
+    BMart: { screen: BMarts, navigationOptions: { title: "BMart" } }
   },
   {
-    mode: "modal"
+    // mode: "modal"
+    mode: "card"
   }
 );
 
