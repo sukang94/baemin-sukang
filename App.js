@@ -1,19 +1,37 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { Text, View } from "react-native";
+import { AppLoading } from "expo";
+import { TabNavigation } from "./navigation/TabNavigation";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class App extends React.Component {
+  state = {
+    loaded: false
+  };
+
+  LoadingError = error => console.log(error);
+  LoadingEnd = () => this.setState({ loaded: true });
+  LoadingStart = async () => {
+    await Font.loadAsync({
+      ...Ionicons.font
+    });
+  };
+
+  render() {
+    const { loaded } = this.state;
+    if (loaded) {
+      return (
+        <View>
+          <Text>Open up App.js to start working on your app!</Text>
+        </View>
+      );
+    } else {
+      return (
+        <AppLoading
+          startAsync={this.LoadingStart}
+          onFinish={this.LoadingEnd}
+          onError={this.LoadingError}
+        />
+      );
+    }
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
