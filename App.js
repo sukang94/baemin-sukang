@@ -1,6 +1,6 @@
 import React from "react";
 import { AppLoading } from "expo";
-import MainNavigation from "./navigation/MainNavigation";
+import TabNavigator from "./navigation/TabNavigation";
 import * as Font from "expo-font";
 
 export default class App extends React.Component {
@@ -19,7 +19,7 @@ export default class App extends React.Component {
   render() {
     const { loaded } = this.state;
     if (loaded) {
-      return <MainNavigation />;
+      return <TabNavigator />;
     } else {
       return (
         <AppLoading
