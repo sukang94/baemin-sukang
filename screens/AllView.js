@@ -1,8 +1,15 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 export default () => (
-  <View>
-    <Text> 모두보기 </Text>
+  <View style={style.container}>
+    <Text> 지금 진행중!</Text>
   </View>
 );
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white"
+  }
+});

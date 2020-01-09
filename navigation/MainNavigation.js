@@ -3,13 +3,17 @@ import { createStackNavigator, HeaderBackButton } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import TabNavigator from "./TabNavigation";
 import AllView from "../screens/AllView";
-import LoadMap from "../screens/LoadMap";
+import TodayL from "../screens/TodayL";
 
 const MainNavigation = createStackNavigator(
   {
     Home: { screen: TabNavigator, navigationOptions: { headerShown: false } },
     AllView: {
       screen: AllView,
+      navigationOptions: { title: "이벤트", headerBackTitleVisible: false }
+    },
+    TodayL: {
+      screen: TodayL,
       navigationOptions: { title: "이벤트", headerBackTitleVisible: false }
     }
 
