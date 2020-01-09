@@ -1,17 +1,22 @@
 import React from "react";
-import { createStackNavigator } from "react-navigation-stack";
+import { createStackNavigator, HeaderBackButton } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import TabNavigator from "./TabNavigation";
-import BMarts from "../screens/BMart";
+import AllView from "../screens/AllView";
+import LoadMap from "../screens/LoadMap";
 
 const MainNavigation = createStackNavigator(
   {
-    Home: { screen: TabNavigator, navigationOptions: { header: null } },
-    BMart: { screen: BMarts, navigationOptions: { title: "BMart" } }
+    Home: { screen: TabNavigator, navigationOptions: { headerShown: false } },
+    AllView: {
+      screen: AllView,
+      navigationOptions: { title: "이벤트", headerBackTitleVisible: false }
+    }
+
+    //스크롤뷰, 하단 스크롤뷰, 공지, 이벤트, 발표
   },
   {
-    // mode: "modal"
-    mode: "card"
+    mode: "card" //modal 아래에서 위로
   }
 );
 

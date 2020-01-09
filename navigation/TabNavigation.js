@@ -9,11 +9,20 @@ import Mybaemin from "../screens/Mybaemin";
 import TabBarIcon from "../components/TabBarIcon";
 import { ACTIVE_COLOR } from "../constants/Color";
 import { Platform } from "react-native";
+import { TAPCOLOR } from "../constants/Color";
+import { createStackNavigator } from "react-navigation-stack";
 
 const TabNavigator = createBottomTabNavigator(
   {
     홈: {
-      screen: Home,
+      screen: createStackNavigator({
+        Home: {
+          screen: Home,
+          navigationOptions: {
+            title: "서울 동작구 상도동 521-5"
+          }
+        }
+      }),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -24,7 +33,9 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     뭐먹지: {
-      screen: WhatEat,
+      screen: createStackNavigator({
+        WhatEat: { screen: WhatEat, navigationOptions: { title: "뭐먹지" } }
+      }),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -35,7 +46,9 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     찜한가게: {
-      screen: LikeShop,
+      screen: createStackNavigator({
+        LikeShop: { screen: LikeShop, navigationOptions: { title: "찜한가게" } }
+      }),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -46,7 +59,12 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     주문내역: {
-      screen: OrderList,
+      screen: createStackNavigator({
+        OrderList: {
+          screen: OrderList,
+          navigationOptions: { title: "주문내역" }
+        }
+      }),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -57,7 +75,9 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     my배민: {
-      screen: Mybaemin,
+      screen: createStackNavigator({
+        Mybaemin: { screen: Mybaemin, navigationOptions: { title: "My배민" } }
+      }),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -73,7 +93,8 @@ const TabNavigator = createBottomTabNavigator(
       activeTintColor: ACTIVE_COLOR,
       title: {
         Color: "black"
-      }
+      },
+      style: { backgroundColor: TAPCOLOR }
     }
   }
 );
